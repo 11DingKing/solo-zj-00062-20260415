@@ -6,26 +6,26 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class TaskDTO {
+public class CommentDTO {
 
     @ApiModelProperty(position = 1)
-    private String title;
+    private Long id;
 
     @ApiModelProperty(position = 2)
-    private String description;
+    private String content;
 
     @ApiModelProperty(position = 3)
-    private String color;
+    private String author;
 
     @ApiModelProperty(position = 4)
-    private TaskStatus status;
+    private LocalDateTime createdAt;
 
     @ApiModelProperty(position = 5)
-    private LocalDate dueDate;
+    private Long taskId;
 }

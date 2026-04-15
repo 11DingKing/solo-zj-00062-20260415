@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import { MatDialogModule, MatInputModule, MatSelectModule } from "@angular/material";
+import { MatDialogModule, MatInputModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule, MatIconModule } from "@angular/material";
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { HomeComponent } from './home/home.component';
@@ -36,7 +36,10 @@ import { KanbanDialogComponent } from './kanban-dialog/kanban-dialog.component';
     MatButtonModule,
     MatDialogModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent],

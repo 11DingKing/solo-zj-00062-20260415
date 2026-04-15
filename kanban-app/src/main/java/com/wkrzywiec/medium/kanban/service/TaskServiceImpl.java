@@ -62,6 +62,7 @@ public class TaskServiceImpl implements TaskService {
         task.setDescription(taskDTO.getDescription());
         task.setColor(taskDTO.getColor());
         task.setStatus(taskDTO.getStatus());
+        task.setDueDate(taskDTO.getDueDate());
         return task;
     }
 
@@ -80,6 +81,10 @@ public class TaskServiceImpl implements TaskService {
 
         if (Optional.ofNullable((taskDTO.getStatus())).isPresent()) {
             task.setStatus(taskDTO.getStatus());
+        }
+
+        if (Optional.ofNullable((taskDTO.getDueDate())).isPresent()) {
+            task.setDueDate(taskDTO.getDueDate());
         }
         return task;
     }

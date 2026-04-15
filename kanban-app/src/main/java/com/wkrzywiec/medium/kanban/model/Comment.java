@@ -7,16 +7,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
 @NoArgsConstructor
-@Table(name = "task")
+@Table(name = "comment")
 @JsonIdentityInfo(
         generator = ObjectIdGenerators.PropertyGenerator.class,
         property = "id")
-public class Task {
+public class Comment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,18 +24,20 @@ public class Task {
     private Long id;
 
     @ApiModelProperty(position = 2)
-    private String title;
+    private String content;
 
     @ApiModelProperty(position = 3)
-    private String description;
+    private String author;
 
     @ApiModelProperty(position = 4)
-    private String color;
+    private LocalDateTime createdAt;
 
-    @Enumerated(EnumType.STRING)
-    @ApiModelProperty(position = 5)
-    private TaskStatus status;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "task_id")
+    private Task task;
 
-    @ApiModelProperty(position = 6)
-    private LocalDate dueDate;
+    @PrePersist
+    protected void onCreate() {
+        createdAt = LocalDateTime.now();
+    }
 }

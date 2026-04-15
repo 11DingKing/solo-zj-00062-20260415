@@ -78,6 +78,7 @@ public class KanbanServiceImpl implements KanbanService {
         task.setDescription(taskDTO.getDescription());
         task.setColor(taskDTO.getColor());
         task.setStatus(taskDTO.getStatus());
+        task.setDueDate(taskDTO.getDueDate());
         return task;
     }
 }
